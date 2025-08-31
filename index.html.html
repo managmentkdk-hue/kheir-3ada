@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خلي الخير عادة 😊 | حملة توعوية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #38a169;
+            --primary-dark: #2f855a;
+            --primary-light: #9ae6b4;
+            --secondary-color: #3182ce;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --background: #f7fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f0f9f0 0%, #e6f4e6 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* التنقل */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* الأقسام العامة */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* الهيرو */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        /* البطاقات */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            background: var(--primary-light);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-icon i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        /* الشبكات */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        /* مشاركة */
+        .share-section {
+            background: var(--primary-light);
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .share-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+        
+        /* الفوتر */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* الرسوم المتحركة */
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">خلي الخير عادة 😊</div>
+                <ul class="nav-links">
+                    <li><a href="#about">عن الحملة</a></li>
+                    <li><a href="#ideas">أفكار للخير</a></li>
+                    <li><a href="#types">أنواع الخير</a></li>
+                    <li><a href="#challenges">التحديات</a></li>
+                    <li><a href="#share">انشر الخير</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>خلي الخير عادة 😊</h1>
+            <p>الخير ليس لحظة عابرة... الخير أسلوب حياة</p>
+            <a href="#about" class="btn">اكتشف المزيد</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ليه نخلي الخير عادة؟</h2>
+                <p>الخير المستمر أثرَه أقوى من الخير الموسمي، وبيخلق مجتمع أفضل للجميع</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>بيزيد السعادة</h3>
+                    <p>الخير بيزيد الشعور بالرضا والسعادة في حياتك اليومية</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>بيوحد المجتمع</h3>
+                    <p>الخير بينشر روح التعاون والتآلف بين أفراد المجتمع</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>أعمال صغيرة بتفرق</h3>
+                    <p>أعمال الخير البسيطة ممكن تعمل فرق كبير في حياة ناس كتير</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideas Section -->
+    <section id="ideas" style="background: #f7fafc;">
+        <div class="container">
+            <div class="section-title">
+                <h2>أفكار بسيطة تخلي الخير عادة</h2>
+                <p>ابدأ بصغيرة وخلي الخير جزء من يومك</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-1"></i>
+                    </div>
+                    <h3>مساعدة الآخرين</h3>
+                    <p>اسأل شخص إذا كان محتاج مساعدة - حتى في أبسط الأشياء</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-2"></i>
+                    </div>
+                    <h3>الكلمة الطيبة</h3>
+                    <p>قول كلمة حلوة لثلاثة أشخاص كل يوم</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-3"></i>
+                    </div>
+                    <h3>الدعاء للغير</h3>
+                    <p>ادعيلغير من قلبك حتى من غير ما يعرفوا</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-4"></i>
+                    </div>
+                    <h3>الابتسامة</h3>
+                    <p>ابتسم للناس - الابتسامة صدقة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types Section -->
+    <section id="types">
+        <div class="container">
+            <div class="section-title">
+                <h2>الخير مش فلوس بس!</h2>
+                <p>للخير أشكال كتير ممكن نقدمها من غير ما تكلّفنا فلوس</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>خير الوقت</h3>
+                    <p>مساعدة كبار السن، تعليم الأطفال، التطوع</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>خير العلم</h3>
+                    <p>تعليم غيرك، مشاركة المعرفة، النصيحة الطيبة</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>خير المشاعر</h3>
+                    <p>المواساة، الدعم النفسي، الاستماع للآخرين</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>خير المال</h3>
+                    <p>الصدقة، إفطار صائم، كسوة محتاج</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" style="background: #f7fafc;">
+        <div class="container">
+            <div class="section-title">
+                <h2>تحديات أسبوعية</h2>
+                <p>شارك معانا في التحديات دي وخلي الخير عادة عندك</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card animate-on-scroll">
+                    <h3>📅 الأسبوع الأول: ابدأ بنفسك</h3>
+                    <p>اتصل بأقرب شخص ليك اسأل عليه إذا كان محتاج حاجة</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3>📅 الأسبوع الثاني: وسع دائرة الخير</h3>
+                    <p>ساعد شخص غريب عنك - دُل إنسان على طريق أو ساعده يحمل حاجة</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3>📅 الأسبوع الثالث: خير بدون فلوس</h3>
+                    <p>قدم نصيحة مفيدة، علم شخص شيء جديد، ادعيلغير</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3>📅 الأسبوع الرابع: خير مستمر</h3>
+                    <p>اتخذ قرار تعمل خير بشكل أسبوعي - حتى لو بسيط</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Section -->
+    <section id="share" class="share-section">
+        <div class="container">
+            <h2>انشر الخير 😊</h2>
+            <p>ساعدنا في نشر الحملة علشان توصل لأكبر عدد من الناس</p>
+            
+            <div class="share-buttons">
+                <a href="#" class="share-btn" id="share-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="share-btn" id="share-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="share-btn" id="share-twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="share-btn" id="share-telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="#" class="share-btn" id="copy-link">
+                    <i class="fas fa-link"></i>
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px;">شارك باستخدام الهاشتاج: <strong>#خلي_الخير_عادة</strong></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>خلي الخير عادة 😊</p>
+            <p>الخير ليس لحظة عابرة... الخير أسلوب حياة</p>
+            
+            <ul class="footer-links">
+                <li><a href="#about">عن الحملة</a></li>
+                <li><a href="#ideas">أفكار للخير</a></li>
+                <li><a href="#types">أنواع الخير</a></li>
+                <li><a href="#challenges">التحديات</a></li>
+                <li><a href="#share">انشر الخير</a></li>
+            </ul>
+            
+            <p>© 2023 حملة خلي الخير عادة. كل الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Share functionality
+        const currentUrl = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent('خلي الخير عادة 😊 - حملة توعوية');
+        
+        document.getElementById('share-whatsapp').href = `https://wa.me/?text=${title}%20${currentUrl}`;
+        document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?text=${title}&url=${currentUrl}`;
+        document.getElementById('share-telegram').href = `https://t.me/share/url?url=${currentUrl}&text=${title}`;
+        
+        // Copy link functionality
+        document.getElementById('copy-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('تم نسخ الرابط بنجاح! شاركه الآن مع أصدقائك.');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    </script>
+</body>
+</html>
